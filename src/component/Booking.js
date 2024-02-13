@@ -4,40 +4,42 @@ import { useParams } from 'react-router-dom';
 
 
 const Booking = () => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [bookingDate, setBookingDate] = useState('');
-    const [price, setPrice] = useState(120);
-    const [numberOfPersons, setNumberOfPersons] = useState(1);
+   // State variables to manage form inputs and calculations
+   const [firstName, setFirstName] = useState('');
+   const [lastName, setLastName] = useState('');
+   const [bookingDate, setBookingDate] = useState('');
+   const [price, setPrice] = useState(120);
+   const [numberOfPersons, setNumberOfPersons] = useState(1);
 
+   // Get the showId from the route parameters
    const { showId } = useParams();
-  // Find the selected show based on showId
-  const stored = JSON.parse(localStorage.getItem('name'));
-  
-  
 
+   // Retrieve stored data from local storage
+   const stored = JSON.parse(localStorage.getItem('name'));
 
-    const handleIncrement = () => {
-        setNumberOfPersons(prevCount => prevCount + 1);
-        setPrice(prevPrice => prevPrice + 120);
-    };
+   // Increment the number of persons and update the price accordingly
+   const handleIncrement = () => {
+       setNumberOfPersons(prevCount => prevCount + 1);
+       setPrice(prevPrice => prevPrice + 120);
+   };
 
-    const handleDecrement = () => {
-        setNumberOfPersons((prevCount) => {
-            if (prevCount > 1) {
-                setPrice((prevPrice) => prevPrice - 120);
-                return prevCount - 1;
-            } else {
-                return prevCount;
-            }
-        });
-    };
+   // Decrement the number of persons and update the price accordingly
+   const handleDecrement = () => {
+       setNumberOfPersons((prevCount) => {
+           if (prevCount > 1) {
+               setPrice((prevPrice) => prevPrice - 120);
+               return prevCount - 1;
+           } else {
+               return prevCount;
+           }
+       });
+   };
 
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-    };
+   // Handle form submission
+   const handleSubmit = (e) => {
+       e.preventDefault();
+       // Logic to handle form submission
+   };
 
     
 
